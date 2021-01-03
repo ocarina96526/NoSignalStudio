@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+	
+	//取得網址裡參數
+	function GetUrlVar(VarName)
+	{
+		name=name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+		var regexS = "[\\?&]" + VarName + "=([^&#]*)";
+		var regex = new RegExp(regexS);
+		var results = regex.exec(window.location.href);
+		if (results == null)
+			return "";
+		else	
+			return results[1];
+	}
+	
+	</script>
+</head>
+
+<body>
+
+<div id="demo"></div>
+
+
+<script>
+
+	var intros = ['<h2>Larry Tsai</h2><img alt="" src="larry.jpg" style="width: 509px; height: 350px;" />',
+					'<h2>Wayne Tsai</h2><img alt="" src="wayne.png" style="width: 509px; height: 350px;" />',
+					'<h2>Potato Huan</h2><img alt="" src="potato.jpg" style="width: 509px; height: 350px;" />',
+					'<h2>MiMi</h2><img alt="" src="cat.jpg" style="width: 509px; height: 350px;" />'];
+	
+	
+	//要先取得網址裡的參數
+	var X = decodeURIComponent(GetUrlVar('pid'));
+	
+	document.getElementById("demo").innerHTML = intros[X];
+	
+</script>
+
+</body>
+
+</html>	
